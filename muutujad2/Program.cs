@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace muutujad
+namespace muutujad2
 {
     class Program
     {
         static void Main(string[] args)
         {
+           
 
+            Console.WriteLine("Hello World!");
+            Console.ReadLine();
+
+            Start:
             string name;
             int cpuNumber;
-   
             int tries = 0;
             bool gameOver = false;
-
-            //Generate a random nr for the CPU from 1-5
 
             Random rnd = new Random();
             cpuNumber = rnd.Next(1, 6);
@@ -44,21 +46,25 @@ namespace muutujad
                 }
                 else
                 {
-                    Console.WriteLine("You won!");
-                    gameOver = true;
+                    Console.WriteLine("You won! Play again? Y/N");
+                    string userAnswer = Console.ReadLine();
+                    if (userAnswer.ToUpper() == "Y")
+                    {
+                        goto Start;
+                    }
+                    
+                    else
+                    {
+                        Console.WriteLine("Game over");
+                        gameOver = true;
+                    }
                 }
 
-                
+
             }
 
 
             Console.ReadLine();
-
-
-
-
-
-
 
         }
     }
